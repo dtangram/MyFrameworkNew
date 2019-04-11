@@ -1,0 +1,30 @@
+.navbar-nav > a{
+  color: white;
+}
+
+header nav button{
+  background: white;
+}
+/*CLASS TO STYLE CURRENT LINK*/
+.currentLink{
+  color: red !important;
+  text-decoration: underline;
+}
+
+.navbar-form{
+  margin-top: 10px;
+  width: 306px;
+}
+
+.form-group{
+  float: left;
+  margin-right: 5%;
+}
+
+.navbar-form .btn{
+  background-color: white !important;
+}
+
+.container > h1:nth-child(1){
+  margin-top: 45px;
+}
