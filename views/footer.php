@@ -11,25 +11,6 @@
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/bootstrap-off-canvas-nav.js" type="text/javascript"></script>
-
-  <script>
-      $(document).ready(function(){
-        $("#desktopToggle").on('click', function(e) {
-          e.preventDefault();
-          $(".iframe-preview").removeClass("iframe-preview-mobile");
-        });
-        $("#mobileToggle").on('click', function(e) {
-          e.preventDefault();
-          $(".iframe-preview").addClass("iframe-preview-mobile");
-        });
-
-        //ADD CLASS TO STYLE CURRENT LINK
-        $("a").each(function(){
-           if ($(this).attr("href") == window.location.pathname){
-                   $(this).addClass("currentLink");
-           }
-       });
-      });
-    </script>
+<script src="assets/js/index.js" type="text/javascript"></script>
   </body>
 </html>

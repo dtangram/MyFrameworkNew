@@ -19,6 +19,40 @@
   </head>
 
   <body class="preview-page off-canvas-nav-left">
+    <!-- MODAL MESSAGE -->
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">ERROR</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p><?php echo @$_GET["msg"] ?></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php
+
+      if(@$_GET["msg"] || @$_GET["msg"] != ""){?>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            setTimeout(function(){
+              $(".modal").modal();
+            }, 500);
+          });
+        </script>
+      <?php } ?>
+
+
+
     <header>
      <!-- Navigation -->
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -60,8 +94,6 @@
          <!-- Collect the nav links, forms, and other content for toggling -->
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
            <ul class="nav navbar-nav">
-             <li><a class="navbar-brand" href="#">Link</a></li>
-             <li><a class="navbar-brand" href="#">Link</a></li>
              <li class="dropdown">
                <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                <ul class="dropdown-menu">
@@ -83,7 +115,7 @@
              <button type="submit" class="btn btn-default">Submit</button>
            </form>
 
-           <ul class="nav navbar-nav navbar-right">
+           <!-- <ul class="nav navbar-nav navbar-right">
              <li><a class="navbar-brand" href="#">Link</a></li>
              <li class="dropdown">
                <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -95,7 +127,7 @@
                  <li><a href="#">Separated link</a></li>
                </ul>
              </li>
-           </ul>
+           </ul> -->
          </div><!-- /.navbar-collapse -->
        </div>
      </nav>
