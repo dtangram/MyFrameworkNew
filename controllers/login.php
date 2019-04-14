@@ -64,18 +64,15 @@
       }
 
       elseif($_POST["email"] == "dtangram@yahoo.com" && $_POST["password"] == 1234){
-        if($male){
-          header("location:/login?msg=Good Login<br />" . $male . "<br />" . $salary . "<br />" . $textareaInfo);
-        }
-
-        else{
-          header("location:/login?msg=Good Login<br />" . $female . "<br />" . $salary . "<br />" . $textareaInfo);
-        }
-
+        $_SESSION["isLoggedIn"] = "1";
+        $_SESSION["userEmail"] = $_POST["email"];
+        header("location:/crud");
       }
 
       else{
-        header("location:/login?msg=Bad Login");
+        $_SESSION["isLoggedIn"] = "0";
+        $_SESSION["userEmail"] = "";
+        header("location:/login?msg=Invalid User");
       }
     }
 
