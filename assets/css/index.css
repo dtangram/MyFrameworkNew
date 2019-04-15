@@ -3,6 +3,11 @@
 }
 
 h1{
+  margin-bottom: 20px;
+}
+
+#loginForms > p:nth-child(2){
+  font-size: 1.2rem;
   margin-bottom: 40px;
 }
 
@@ -12,6 +17,11 @@ h2{
 
 .navbar-nav > a{
   color: white;
+}
+
+.nav-link:hover{
+  color: red !important;
+  text-decoration: underline !important;
 }
 
 header nav button{
@@ -25,12 +35,16 @@ header nav button{
 /*CLASS TO STYLE CURRENT LINK*/
 .currentLink{
   color: red !important;
-  text-decoration: underline;
 }
 
 .navbar-form{
   margin-top: 10px;
   width: 306px;
+}
+
+.form-group{
+  float: left;
+  margin-right: 5%;
 }
 
 .navbar-form .btn{
@@ -39,35 +53,4 @@ header nav button{
 
 .container > h1:nth-child(1){
   margin-top: 45px;
-}
-
-.form-check{
-  display: inline-block;
-  margin-bottom: 10px;
-  /*padding-left: 1.25rem;*/
-  position: relative;
-  width: 100%;
-}
-
-.form-check-input{
-  position: absolute;
-  margin-top: .3rem;
-  margin-left: -1.25rem;
-}
-
-.form-check-label{
-  margin-right: .75rem;
-}
-
-#exampleFormControlSelect2{
-  margin-bottom: 10px;
-}
-
-#textarea{
-  width: 100%;
-}
-
-.form-group{
-  float: left;
-  margin-right: 5%;
 }

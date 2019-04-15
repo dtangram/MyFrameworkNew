@@ -8,7 +8,7 @@
     public function index(){
       $data = array();
       $data["pagename"] = "welcome";
-      $data["navigation"] = array("home"=>"/welcome", "register"=>"/register", "login"=>"/login", "about"=>"/about");
+      $data["navigation"] = $this->parent->getNav();
 
       $this->parent->getView("header", $data);
       $this->parent->getView("welcome");

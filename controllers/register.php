@@ -9,7 +9,7 @@
       $data = array();
 
       $data["pagename"] = "register";
-      $data["navigation"] = array("home"=>"/welcome", "register"=>"/register", "login"=>"/login", "about"=>"/about");
+      $data["navigation"] = $this->parent->getNav();
 
       // RANDOMLY DISPLAY THE LINES AND ALPHANUMERIC CHARACTERS, WHICH WILL CHANGE EVERY TIME THE PAGE RELOADS
       $random = substr( md5(rand()), 0, 7);
@@ -18,15 +18,15 @@
       // ASSIGN THE CAPTCHA SESSION THAT WAS PASSED AS AN ARGUMENT IN THE create_image METHOD TO THE DATA ARRAY
       $_SESSION["captchaInput"] = $data["cap"];
 
-      $this->parent->getView("header",$data);
-      $this->parent->getView("registerForm",$data);
+      $this->parent->getView("header", $data);
+      $this->parent->getView("registerForm", $data);
       $this->parent->getView("footer");
     }
 
     public function registerConfirmed(){
       $data = array();
       $data["pagename"] = "register";
-      $data["navigation"] = array("home"=>"/welcome", "register"=>"/register", "login"=>"/login", "about"=>"/about");
+      $data["navigation"] = array("home"=>"/welcome", "register"=>"/register", "login"=>"/login", "api"=>"/api");
 
       $this->parent->getView("registerConfirmed", $data);
     }
