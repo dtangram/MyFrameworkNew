@@ -54,6 +54,10 @@ class AppController{
 
     }
 
+    public function getNav(){
+      return array("home"=>"/welcome", "register"=>"/register", "login"=>"/login", "api"=>"/api");
+    }
+
     public function getView($page,$data=array()){
 
         require_once './views/'.$page.".php";
