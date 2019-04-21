@@ -14,6 +14,11 @@ h2{
   color: white;
 }
 
+.nav-link:hover{
+  color: red !important;
+  text-decoration: underline !important;
+}
+
 header nav button{
   background: white;
 }

@@ -1,82 +1,61 @@
 <?php
 
+  session_start();
+  class AppController{
 
-session_start();
-class AppController{
+      public function __construct($urlPathParts,$config){
+          $this->db = new PDO("mysql:dbname=".$config["dbname"].";",$config["dbuser"],$config["dbpass"]);
 
-    public function __construct($urlPathParts,$config)
-    {
+          $this->urlPathParts = $urlPathParts;
 
-        // $this->db = new PDO("mysql:dbname=".$config["dbname"].";",$config["dbuser"],$config["dbpass"]);
+          if($urlPathParts[0]){
+            include './controllers/' . $urlPathParts[0] . ".php";
 
-        $this->urlPathParts = $urlPathParts;
+              $appcon = new $urlPathParts[0]($this);
 
+              if(isset($urlPathParts[1])){
+                  $appcon->$urlPathParts[1]();
+              }
 
-        if ($urlPathParts[0]) {
+              else{
+             		$methodVariable = array($appcon, 'index');
 
-          include './controllers/' . $urlPathParts[0] . ".php";
+                if(is_callable($methodVariable, false, $callable_name)){
+              	   $appcon->index($this);
+              	}
+              }
+          }
 
-            $appcon = new $urlPathParts[0]($this);
-
-            if (isset($urlPathParts[1])) {
-
-                $appcon->$urlPathParts[1]();
-
-
-            }else{
-
-           		$methodVariable = array($appcon, 'index');
-				if(is_callable($methodVariable, false, $callable_name)){
-            	$appcon->index($this);
-
-            	}
-            }
-
-
-        }else{
-
+          else{
             include './controllers/' . $config['defaultController'] . ".php";
             $appcon = new $config['defaultController']($this);
             if (isset($urlPathParts[1])) {
                 $appcon->config['defaultController'][1]();
-            }else{
-
-           		$methodVariable = array($appcon, 'index');
-				if(is_callable($methodVariable, false, $callable_name)){
-            	$appcon->index($this);
-
-            	}
             }
 
-        }
+            else{
+              $methodVariable = array($appcon, 'index');
 
+              if(is_callable($methodVariable, false, $callable_name)){
+              	$appcon->index($this);
+            	}
+            }
+          }
+      }
 
+      public function getNav(){
+        return array("home"=>"/welcome", "register"=>"/register", "login"=>"/login", "api"=>"/api");
+      }
 
-    }
+      public function getView($page,$data=array()){
+          require_once './views/'.$page.".php";
+      }
 
-    public function getNav(){
-      return array("home"=>"/welcome", "register"=>"/register", "login"=>"/login", "api"=>"/api");
-    }
-
-    public function getView($page,$data=array()){
-
-        require_once './views/'.$page.".php";
-
-    }
-
-	public function getModel($page){
-
-
-        require_once './models/'.$page.".php";
-        $model = new $page($this);
-        return $model;
-
-    }
-
-
-
-}
-
-
+  	   public function getModel($page){
+          require_once './models/'.$page.".php";
+          $model = new $page($this);
+          return $model;
+      }
+  }
 
 ?>

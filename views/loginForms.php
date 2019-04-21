@@ -7,7 +7,7 @@
         <div class="col-lg-12">
           <h2>Form Request</h2>
 
-          <form class="" action="/login/receive" method="post">
+          <form class="" action="/auth/loginAuth" method="post">
             <input type="hidden" name="type" value="form">
             <div class="form-group input-group">
               <div class="input-group-prepend">
