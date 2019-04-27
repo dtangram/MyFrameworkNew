@@ -76,3 +76,28 @@ header nav button{
   float: left;
   margin-right: 5%;
 }
+
+.wrapper{
+  text-align: center;
+}
+
+.wrapper h2{
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  padding: 0 25%;
+}
+
+.wrapper img{
+  margin-bottom: 20px;
+}
+
+.wrapper p{
+  font-size: .9rem;
+  margin-bottom: 20px;
+  padding: 0 20%;
+  text-align: left;
+}
+
+.wrapper hr{
+  margin-bottom: 20px;
+}

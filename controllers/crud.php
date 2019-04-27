@@ -44,6 +44,7 @@
       $sql = "delete from fruit_table where id = :id";
       $data["fruit"] = $this->parent->getModel("fruit")->delete($sql, array(":id"=>$_GET["deletLink"]));
 
+
       header("location:/crud");
     }
 

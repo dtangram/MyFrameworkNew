@@ -17,14 +17,11 @@
         // USE array_push METHOD TO STORE THE STRING IN THE ARRAY
         array_push($err, "Enter your email address");
       }
+
       // IF THE REGULAR EXPRESSION PATTERN AND EMAIL ENTERED DOESN'T MATCH, DISPLAY ERROR MESSAGE
       if(!preg_match("/^[a-zA-Z0-9_+.-]+\@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,7}$/i", $_POST["email"])){
         array_push($err, "Invalid email address");
       }
-
-      // if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-      //   array_push($err, "Invalid email address<br />");
-      // }
 
       if(empty($_POST["password"]) || $_POST["password"] == ""){
         array_push($err, "Password input field cannot be blank");

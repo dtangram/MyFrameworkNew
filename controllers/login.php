@@ -37,22 +37,22 @@
         $file = "./assets/login.txt";
         $h = fopen($file, "r");
         $contents = file_get_contents($file);
-        // $content = fread($h, filesize($file));
 
         $lines = explode("\n", $contents);
 
         fclose($h);
 
         foreach($lines as $word){
-          if (trim($word) != '') {
-              $divides = explode("|", $word);
-              $emails[] = $divides[0];
+          if(trim($word) != ''){
+            $divides = explode("|", $word);
+            $emails[] = $divides[0];
           }
 
           if(empty($_POST["email"]) || $_POST["email"]==""){
             // USE array_push METHOD TO STORE THE STRING IN THE ARRAY
             array_push($err, "Enter your email address");
           }
+
           // IF THE REGULAR EXPRESSION PATTERN AND EMAIL ENTERED DOESN'T MATCH, DISPLAY ERROR MESSAGE
           if(!preg_match("/^[a-zA-Z0-9_+.-]+\@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,7}$/i", $_POST["email"])){
             array_push($err, "Invalid email address");
@@ -109,8 +109,6 @@
       }
 
       echo implode(', ', txtLogin());
-
-
     }
 
     public function receiveAjax(){
